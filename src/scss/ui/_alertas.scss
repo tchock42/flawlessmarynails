@@ -1,0 +1,24 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.alerta{
+    font-family: v.$fuente_principal;
+    font-weight: 300;
+    font-size: 1.4rem;
+    padding: 0 2rem;
+    margin-top: 1rem;
+    @include m.tablet {
+        flex: 3;
+    }
+
+    &__error{
+        background-color: lighten(v.$oscuro, 20%);
+        border-left: .5rem solid v.$oscuro;
+        color: v.$oscuro;
+    }
+    &__exito{
+        background-color: lighten(v.$claro, 40%);
+        border-left: .5rem solid v.$claro;
+        color: darken(v.$claro, 20);
+    }
+}

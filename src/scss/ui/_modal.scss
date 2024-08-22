@@ -1,0 +1,131 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.hamburger{
+    cursor: pointer;
+    user-select: none;
+
+    &__icon{
+        width: 3rem;
+        cursor: pointer;
+        @include m.tablet {
+            display: none;   
+        }
+    }
+}
+
+.sidebar{
+    height: 100vh;
+    width: 32rem;
+    background: v.$blanco;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 0 6rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);//al inicio el side está fuera de la pantalla
+    transition: transform 0.4s ease-in-out;
+
+    &__close{
+        position: absolute;
+        top: 50%;
+        right: -30px;
+        background-color: #fff;
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        box-shadow: 0 0 20px 20px rgba(0,0,0,0.03);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(-100%);               //recorre el boton 100 para ocultarlo al cerrarlo
+        cursor: pointer;
+        transition: transform 0.4s ease-in-out 0.2s;
+
+
+        &::before, &::after{    //cruz para cerrar el modal
+            content: "";
+            height: 2px;
+            background: #898989;
+            width: 24px;
+            display: block;
+            position: absolute;
+        }
+        &::after{
+            transform: rotate(90deg);
+        }
+    }
+
+    &__menu{
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        flex: 1;    //toma toda el espacio hacia abajo
+        justify-content: space-around;
+        font-size: 36px;
+        margin-top: 8rem;
+        margin-bottom: 8rem;
+        a{
+            color: v.$oscuro;
+            transform: translateX(-80%);            // recorre el texto 80%
+            transition: transform 0.4s ease-in-out;
+
+            &::before{                              //agrega el subrayado
+                content: "";
+                height: 2px;
+                background: v.$oscuro;
+                width: 12rem;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: transform 0.4s ease-in-out, opacity 0.4s linear;    //agrega la transicion del movimiento y la opacidad
+            }
+            &:hover{
+                &::before{
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @for $i from 1 through 4 {  //itera en los {a} 
+                &:nth-child(#{$i}) {   //& es a
+                  transition-delay: $i * 0.05s;
+                }
+            }
+        }
+    }
+}
+.menu-control{  //checkbox
+    display: none; //oculta el checkbox
+
+    &:checked {             //seleccionado
+        & + .sidebar{
+            transform: translateX(0);   //se da clic al boton para regresar el aside hacia adentro
+        }
+        & + .sidebar .sidebar__close{
+            transform: translateX(0) rotate(45deg);   //regresa el sidebar y gira el boton
+        }
+        & + .sidebar .sidebar__menu a{
+            transform: translateX(0);   //
+        }
+    }
+}
+
+
+
+
+
+
+.header{
+    .menu-redes{
+        @include m.menu-social(v.$negro, 2rem);
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 4rem;
+    }
+}

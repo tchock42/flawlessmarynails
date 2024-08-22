@@ -1,0 +1,36 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contenedor.encabezado{
+    @include m.contenedor-xl;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    background-color: v.$blanco;
+
+    .barrita{
+        padding: 2rem;
+        @include m.tablet {
+            display: flex;
+        }
+
+        &__heading{
+            font-size: 6rem;
+            font-family: v.$fuente_secundaria;
+            margin: 2rem 0;
+            @include m.tablet {
+                flex: 1;
+                align-self: center;
+                padding: 0 4rem;
+            }
+        }
+        &__descripcion{
+            font-family: v.$fuente_principal;
+            font-weight: 300;
+            font-size: 1.6rem;
+            padding: 2rem;
+            @include m.tablet {
+                flex: 3;
+            }
+        }
+    }
+}

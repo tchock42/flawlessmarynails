@@ -1,0 +1,81 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.header__user{
+    position: relative;
+
+    
+
+    &__login{
+        margin: .5rem 0;
+    }
+
+    &:hover{
+
+        .submenu{
+            @include m.tablet {
+                display:block;
+            }
+            
+        }
+    }
+}
+.submenu {
+  
+    display: none;
+    position: absolute;
+    top: 80%;
+    right: 10%;
+    background-color: v.$blanco;
+    padding: 0;
+    width: 20rem; //20
+    height: 8rem;
+    
+    img{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        color: v.$secundario;
+        margin: 0 1rem;
+    }
+
+    &__elemento{
+        color: v.$secundario;
+        list-style: none;
+        font-size: 1.6rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        &:hover{
+            background-color: v.$claro;
+        }
+    }
+    &__elemento li{
+        text-align: left;
+    } 
+    &__form{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        img {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 1rem;
+        }
+        .submenu__submit{
+            all: unset;
+            color: v.$secundario;
+            font-size: 1.6rem;
+            height: 4rem;
+            width: 100%;
+            margin: auto 0;
+        }
+
+        &:hover{
+            cursor: pointer;
+            background-color: v.$claro;
+        }   
+    }
+}

@@ -1,0 +1,122 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contenedor-formulario.producto{
+    @include m.contenedor-xl;
+}
+
+.contenedor-formulario{
+    @include m.contenedor-md;
+    &__boton-volver{
+        @include m.boton(v.$claro, v.$negro);
+        width: 100%;
+        border-radius: 0.5rem;
+        font-size: 1.6rem;
+        @include m.tablet {
+            width: auto;
+            font-size: 1.4rem;
+        }
+    }
+
+    .formulario{
+        background-color: v.$blanco;
+        margin: 4rem auto;
+        padding: 2rem 4rem;
+        border-radius: 1rem;
+        .campo{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            display:flex;
+            flex-direction: column;
+
+            label{
+                font-family: v.$fuente_principal;
+                font-size: 1.4rem;
+                color: v.$gris;
+                margin-bottom: 1rem;
+            }
+            input[type=text], input[type=email], input[type=password], textarea {
+                font-size: 1.2rem;
+                padding:1rem;
+                border-radius: .5rem;
+                border: 1px solid rgb(201, 198, 198);
+            }   
+            textarea{
+                height: 7rem;
+            }
+            input[type=file]{
+                font-size: 1.6rem;
+            }
+            input:focus, textarea:focus{
+                outline: none;
+                -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.29);
+                -moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.29);
+                box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.29);
+            }
+        }
+        input[type=submit]{
+            border-radius: 1rem;
+            @include m.boton(v.$principal, v.$negro);
+            font-size: 1.6rem;
+            width: 100%;
+            @include m.tablet {
+                width: auto;
+                margin: 0 auto;
+                font-size: 1.4rem;
+            }
+        }
+        input::file-selector-button{
+            @include m.boton(v.$claro);
+            padding: 1rem;
+            font-size: 1.4rem;
+            border-radius:2rem;
+        }
+        &__texto{
+            font-family: v.$fuente_principal;
+            font-size: 1.4rem;
+            color: v.$gris;
+            margin: 0;
+        }
+        &__imagen{
+            width: 15rem;
+
+        }
+    }
+    .acciones{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        font-size: 1.2rem;
+
+        &__enlace{
+            color:v.$oscuro;
+            &:hover{
+                color: darken(v.$principal, 10%);
+            }
+            &__confirmar{
+                margin-top: 4rem;
+            }
+        }
+
+    }
+}
+
+.formulario-imagen{
+    @include m.contenedor-md;
+    height: 35rem;
+    overflow: hidden;
+    position: relative;
+    margin: 4rem auto;
+    img{
+        position: absolute;
+        left:-100%;
+        right: -100%;
+        top: -100%;
+        bottom: -100%;
+        margin: auto;
+        min-height: 100%;
+        min-width: 100%;
+    }
+}

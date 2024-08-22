@@ -1,0 +1,202 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.tienda{
+    @include m.contenedor-xxxl;
+    margin-top: 4rem;
+    padding: 2rem;
+    gap: 3rem;
+    
+    @include m.tablet {
+        display: flex;
+    }
+
+    &__listado{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 3rem;
+        width: 100%;
+        transition: 0.3s;
+        // @include m.tablet {
+        //     display: grid;
+        //     grid-template-columns: 1fr;
+        //     gap: 3rem;
+        // }
+        // @include m.desktop {
+        //     display: grid;
+        //     grid-template-columns: 1fr 1fr;
+        //     gap:3rem;
+        // }
+        // @include m.desktop-xl{
+        //     display: grid;
+        //     grid-template-columns: 1fr 1fr 1fr;
+        //     gap: 3rem;
+        // }
+    }
+
+    .producto{
+        background-color: v.$blanco;
+        margin: 2rem auto;
+        max-width: 30rem;
+        padding-bottom: 2rem;
+
+        &__resumen{
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h3{
+                font-family: v.$fuente_secundaria;
+            }
+
+            &__descripcion{
+                display: -webkit-box; //genera una caja
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+    }
+    .producto:hover{
+        box-shadow:  0 0 10px #666;
+        scale: 1.01;
+        transition-property: scale;
+        transition: 0.3s;
+    }
+}
+
+.producto__agregar{
+    margin: 0 auto;
+    @include m.boton(v.$azulClaro, v.$negro);
+    border-radius: 1rem;
+    display: flex;
+    
+    &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+} 
+
+.carrito{
+    border: 1px solid v.$gris;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: auto;
+    position: sticky !important;
+    position: -webkit-sticky;
+    top: 0;
+    transition: .3s;
+    opacity: 0;
+    margin-right: '-100%';
+    &__header{
+        background-color: v.$negro;
+        color: v.$blanco;
+        text-align: center;
+        padding: 3rem 0;
+    }
+    &__item{
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        position: relative;
+        border-bottom: 1px solid v.$gris;
+        padding: 2rem;
+        position: relative;
+        &__img{
+            width: 8rem;
+            margin-right: 2rem;
+        }
+        &__detalles{
+
+            
+        }
+
+        &__titulo{
+            display:block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .selector__cantidad{
+            display: inline-block;
+            margin-right: 2.5rem;
+
+            i{
+                font-size: 18px;
+                width: 3.2rem;
+                height: 3.2rem;
+                line-height: 3.2rem;
+                text-align: center;
+                border-radius: 50%;
+                border: 1px solid v.$negro;
+                cursor: pointer;
+            }
+        }
+        &__precio{
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin: 1rem auto;
+        }
+        &__cantidad{
+            border: none;
+            font-size: 1.8rem;
+            background: transparent;
+            display: inline-block;
+            width: 3rem;
+            padding: .5rem;
+            text-align: center;
+        }
+        &__eliminar{
+            position: absolute;
+            right: 1.5rem;
+            top:1.5rem;
+            color: v.$negro;
+            width: 4rem;
+            height: 4rem;
+            line-height: 4rem;
+            text-align: center;
+            border-radius: 50%;
+            border: 1px solid v.$negro;
+            cursor: pointer;
+            display: block;
+            background-color: transparent;
+            z-index: 20;
+            i{
+                pointer-events: none;
+            }
+        }
+    }
+    &__total{
+        background-color: #f3f3f3;
+        padding: 3rem;
+
+        &__fila{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        &__boton{
+            @include m.boton(v.$negro, v.$blanco);
+            width: 100%;
+            border-radius: .5rem;
+            li{
+                margin: 0 .5rem;
+            }
+            @include m.tablet {
+                display: flex;
+                width: fit-content;
+                margin: 0 auto;
+            }
+        }
+        &__boton:hover{
+            scale:1.05;
+        }
+    }
+}

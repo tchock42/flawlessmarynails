@@ -1,0 +1,35 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+footer{
+    
+    background-color: v.$claro;
+    .contenedor{
+        @include m.contenedor-xl;
+        padding: 4rem;
+        
+        .seccion:not(:last-of-type){
+            border-bottom: 1px solid #47444430;
+        }
+        .seccion{
+            margin-bottom: 4rem;
+            h3, p{
+                font-weight: 300;
+            }
+            p{
+                font-size: 1.4rem;
+            }
+            
+        }
+        .menu-redes{
+            @include m.menu-social(v.$negro, 2rem);
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 4rem;
+            @include m.tablet{
+                @include m.menu-social(v.$negro, 3rem)
+            }
+        }
+    }
+}

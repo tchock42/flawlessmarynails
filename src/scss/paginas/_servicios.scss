@@ -1,0 +1,46 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.servicios{
+    margin-top: 4rem;
+    @include m.contenedor-xl;
+    padding: 2rem;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+    @include m.desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: space-between;
+        gap:4rem;
+    }
+}
+.servicio{
+    background-color: v.$blanco;
+    margin: 2rem 0;
+    &__resumen{
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3{
+            font-family: v.$fuente_secundaria;
+        }
+    }
+
+}
+
+.servicios__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+    &__agenda{
+        @include m.boton(v.$negro, v.$blanco);
+    }
+}

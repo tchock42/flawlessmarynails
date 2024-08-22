@@ -1,0 +1,102 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+// .alerta{
+//     padding: 0.5rem;
+//     text-align: center;
+//     color: white;
+//     text-transform: uppercase;
+//     margin: 1rem 0;
+//     &.error{
+//         background-color: red;
+        
+//     }
+//     &.exito{
+//         background-color: green;
+//     }
+// }
+
+.productos{
+    @include m.contenedor-xl;
+    &__boton{
+        @include m.boton(v.$oscuro, v.$negro);
+    }
+
+    &__heading{
+        font-size: 6rem;
+        font-family: v.$fuente_secundaria;
+        margin: 4rem 0;
+    }
+
+    &__tabla{
+        width: 100%;
+        margin: 4rem 0;
+        border-spacing: 0;
+        background-color: v.$blanco;
+        font-size: 1.2rem;
+        @include m.tablet {
+            width: 100%;
+            font-size: 1.6rem;
+        }
+        thead{
+            background-color: v.$oscuro;
+    
+            th{
+                color: v.$blanco;
+                padding: 0.5rem;
+                @include m.tablet {
+                    padding: 2rem;
+                }
+            }
+        }
+        .imagen-tabla{
+            width: 5rem;
+            @include m.tablet {
+                width: 10rem;
+            }
+        }
+
+        &__producto{
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        &__producto:nth-child(2n+1){
+            background-color: lighten(v.$oscuro, 20);
+        }
+    }
+
+    &__acciones{
+
+        &__boton-eliminar{
+            @include m.boton(red, v.$negro);
+            width: 100%;
+            margin: 1rem auto;
+            font-size: 1.2rem;
+            padding: 1rem 0.5rem;
+            @include m.tablet {
+                width: 70%;
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+                display: block;
+            }
+            @include m.desktop{
+                font-size: 1.6rem;
+            }
+        }
+        &__boton-actualizar{
+            @include m.boton(v.$claro);
+            width: 100%;
+            margin: 1rem auto;
+            font-size: 1.2rem;
+            padding: 1rem 0.5rem;
+            @include m.tablet{
+                width: 70%;
+                font-size: 1.4rem;
+                padding: 1rem 2rem;
+                display: block;
+            }
+            @include m.desktop{
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

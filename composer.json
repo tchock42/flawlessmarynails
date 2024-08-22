@@ -1,0 +1,22 @@
+{
+    "name": "husky/newflawlessmarynails",
+    "description": "Proyecto de flawlessmarynails",
+    "type": "proyect",
+    "autoload": {
+        "psr-4": {
+            "MVC\\": "./",
+            "Controllers\\": "./controllers",
+            "Model\\": "./models",
+            "Classes\\": "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jacob Gomez Carrillo"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9",
+        "intervention/image": "^3.7"
+    }
+}
