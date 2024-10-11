@@ -8,7 +8,7 @@ use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\Encoders\WebpEncoder;
 
-// clase para la generación de cita
+// clase para la administracion de productos
 class ProductosController{
 
     public static function index(Router $router){ //pagina principal de administrador

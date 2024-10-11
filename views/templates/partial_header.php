@@ -40,7 +40,7 @@
         <nav class="header__iconos">
             <a href="https://wa.me/525542181678" target="_blank"><button class="header__boton">Agendar</button></a>
             <div class="header__user">
-                <a class="header__user__icono" href=<?php if(is_auth()){ echo "/admin"; }else{ echo "/login";} ?>>
+                <a class="header__user__icono" href=<?php if(is_auth() && $_SESSION['admin']){ echo '/admin'; }elseif(is_auth() && $_SESSION['nombre']){ echo "/cuenta-usuario"; }else{ echo "/login";} ?>>
                     <button class="header__boton--transparente" type="button">
                         <p class="header__user__login"><?php if(is_auth()){ echo $_SESSION['nombre']; ?> </p> 
                         <?php }else{  ?>

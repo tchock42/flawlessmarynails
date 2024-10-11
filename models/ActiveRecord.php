@@ -131,7 +131,7 @@ class ActiveRecord {
         return $resultado;
     }
 
-    // Busca un registro por su id
+    // Busca un registro por un valor en una columna
     public static function where($columna, $valor) {
         // debuguear(static::$tabla);
         $query = "SELECT * FROM " . static::$tabla  ." WHERE $columna = '$valor'";
@@ -139,6 +139,14 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         // debuguear($resultado);
         return array_shift( $resultado ) ; //quita elprimer nivel que es un arreglo y solo deja el objeto con los atributos
+    }
+
+    public static function whereall($columna, $valor){
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE $columna = '$valor'";
+        // debuguear($query); //imprime la consulta
+        $resultado = self::consultarSQL($query);
+        // debuguear($resultado);
+        return $resultado;
     }
 
     // Consulta Plana de sql (Utilzar cuando los metodos del modelo no son suficientes)

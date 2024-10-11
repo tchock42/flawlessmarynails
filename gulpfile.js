@@ -70,22 +70,21 @@ async function versionAvif (done){
 }
 function javascript(done){
     src(paths.js)
+        .pipe(sourcemaps.init())
         .pipe(webpack({
             mode: 'production',
             entry: './src/js/app.js' //lee el contenido y crea el bundle
         }))
-        .pipe(sourcemaps.init())
         .pipe(concat('bundle.js'))
         .pipe(terser())
-        .pipe( sourcemaps.write('.'))
         .pipe(rename({suffix: '.min'}))
+        .pipe( sourcemaps.write('.'))
         .pipe(dest('./public/build/js'));
-
     done();
 }
 function dev(done){
-    watch("src/scss/**/*.scss", css); //cuando cambia app.scss ejecuta css
-    watch("src/js/**/*.js", javascript);
+    watch(paths.scss, css); //cuando cambia app.scss ejecuta css
+    watch(paths.js, javascript);
     done();
 }
 exports.css = css;

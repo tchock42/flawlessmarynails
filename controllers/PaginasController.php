@@ -28,14 +28,12 @@ class PaginasController{
         ]);
     }
 
-    public static function productos(Router $router){
+    public static function productos(Router $router){   // tienda de press-on
 
         $productos = Producto::all();
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            if(!is_auth()){
-                header('Location: /login');
-            }
+   
             
         }
         $router->render('paginas/productos', [
@@ -46,5 +44,22 @@ class PaginasController{
             'id' => $_SESSION['id'] ?? ''
         ]);
     }  
+
+    public static function pedido(Router $router){ //pagina para realizar el pago
+        if(!isset($_SESSION)) { //si no está la sesion abierta la abre
+            session_start();
+        }
+        if(!isset($_SESSION['id'])){ // si no está iniciada la sesión
+            header('Location: /login?redirect=/pedido');
+            exit();
+        }
+
+        $router->render('paginas/pedido', [
+            'titulo' => 'Proceso de Pago',
+            'nombre' => $_SESSION['nombre'],
+            'apellido' => $_SESSION['apellido'],
+            'id' => $_SESSION['id']
+        ]);
+    }
 }
 

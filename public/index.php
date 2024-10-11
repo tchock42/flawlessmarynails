@@ -6,6 +6,7 @@ use MVC\Router;
 use Controllers\PaginasController;
 use Controllers\LoginController;
 use Controllers\ProductosController;
+use Controllers\CarritoController;
 
 $router = new Router();
 
@@ -34,7 +35,13 @@ $router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
 
 // tienda de press-on
 $router->get('/productos', [PaginasController::class, 'productos']);
-
+$router->get('/pedido', [PaginasController::class, 'pedido']);
+$router->post('/pedido', [PaginasController::class, 'pedido']);
+// API
+$router->post('/api/carrito', [CarritoController::class, 'guardar']);       // url para datos de formData
+$router->post('/api/producto', [CarritoController::class, 'almacenar']);    // url para datos de formData
+$router->post('/api/eliminar', [CarritoController::class, 'eliminar']);     // url para eliminar del carrito
+$router->post('/api/usuario', [CarritoController::class, 'usuario']);         // cargar usuario y carrito si existe
 
 // area de administracion
 $router->get('/admin', [ProductosController::class, 'index']);

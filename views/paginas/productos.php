@@ -34,21 +34,7 @@
 
     <div class="carrito__items" id="carrito__items">
         
-        <div class="carrito__item">
-            <img src="/imagenes/producto1.jpeg" class="carrito__item__img">
-            <div class="carrito__item__detalles">
-                <span class="carrito__item__titulo">Box Engasse</span>
-                <!-- <div class="selector__cantidad">
-                    <i class="fa-solid fa-minus restar-cantidad"></i>
-                    <input type="text" value="1" class="carrito__item__cantidad" disabled>
-                    <i class="fa-solid fa-plus sumar-cantidad"></i>
-                </div> -->
-                <span class="carrito__item__precio">$20,000</span>
-            </div>
-            <span class="carrito__item__eliminar">
-                <i class="fa-solid fa-trash"></i>
-            </span>
-        </div>
+
     </div>
 
     <div class="carrito__total">
@@ -58,9 +44,9 @@
                 
             </span>
         </div>
-        <button type="button" class="carrito__total__boton">Pagar
+        <a href="/pedido"><button type="button" class="carrito__total__boton" id="carrito__pagar">Pagar
             <li class="fa-solid fa-bag-shopping"></li>
-        </button>
+        </button></a>
     </div>
 </section>
 

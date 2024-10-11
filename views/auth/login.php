@@ -6,7 +6,7 @@
 </section>
 
 <section class="contenedor-formulario">
-    <form class="formulario" method="POST" action="/login"> <!--ACTION referencia a / -->
+    <form class="formulario" method="POST" action="/login" id="loginForm"> <!--ACTION referencia a / -->
         <?php
             require_once __DIR__ . '/../templates/alertas.php';
         ?>
@@ -28,7 +28,7 @@
                 placeholder="Al menos 6 caracteres"
                 name="password"> <!-- para leerse con $_post['email] -->
         </div>
-        <input type="submit" value="Iniciar Sesión">
+        <input type="submit" value="Iniciar Sesión" id="loginButton">
     </form>
     <div class="acciones">
         <a class="acciones__enlace" href="/crear">¿Aún no tienes cuenta? Crear cuenta</a>
