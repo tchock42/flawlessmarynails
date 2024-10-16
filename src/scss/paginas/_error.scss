@@ -1,0 +1,18 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contenedor.encabezado.error{
+    
+    .barrita{
+        justify-content: space-between;
+
+        &__descripcion{
+            text-align: center;
+            align-self: center;
+
+            span a{
+                color: v.$oscuro;
+            }
+        }
+    }
+}

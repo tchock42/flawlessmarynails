@@ -24,7 +24,7 @@
     </form>
     <div class="acciones">
         <a class="acciones__enlace" href="/login">¿Ya tienes cuenta? ¡Inicia sesión!</a>
-        <a class="acciones__enlace" href="/crear">Si no tienes, ¡crea una!</a>
+        <!-- <a class="acciones__enlace" href="/crear">Si no tienes, ¡crea una!</a> -->
     </div> 
 </section>
 <div class=" formulario-imagen">

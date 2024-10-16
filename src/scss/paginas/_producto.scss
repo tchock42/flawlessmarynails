@@ -1,0 +1,99 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.press-on{
+    margin-top: 4rem;
+    @include m.contenedor-xl;
+    padding: 2rem;
+
+    &__vista{
+        background-color: v.$blanco;
+        padding: 4rem;
+        margin-bottom: 4rem;
+        @include m.tablet {
+            display: flex;
+            gap: 4rem;
+        }
+
+        &__imagen{
+            flex: 1;
+            border-radius: 10% 10% 10% 10%;
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 2rem;
+        }
+        &__imagen:hover{
+            transform: scale(1.04);
+        }
+
+        &__informacion{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            &__nombre{
+                font-family: v.$fuente_secundaria;
+                font-size: 4rem;
+                text-align: center;
+            }
+            &__descripcion{
+                font-size: 2rem;
+                color:v.$gris;
+                font-family: v.$fuente_principal;
+                span{
+                    color: v.$negro;
+                    font-weight: 700;
+                }
+            }
+            &__precio{
+                font-size: 2.4rem;
+                color: v.$gris;
+                span{
+                    color: v.$negro;
+                    font-weight: 700;
+                }
+            }
+            &__contacto{
+                padding: 0 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p{
+                    text-align: center;
+                    color: v.$gris;
+                }
+                .header-boton{
+                    margin: 0 auto;
+                }
+                &__boton-contacto{
+                    width: 100%!important;
+                    @include m.tablet {
+                        width: fit-content!important;
+                    }
+                }
+            }
+            
+
+        }
+    }
+    &__boton-volver{
+        background-color: #fbe0d1;
+        border: none;
+        border-radius: .5rem;
+        color: #000;
+        display: inline-block;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        transition: background-color 0.3s ease-in-out;
+        width: 100%;
+        @include m.tablet {
+            width: fit-content;
+        }
+    }
+    &__boton-volver:hover{
+        background-color: #f7c0a2;
+        cursor:pointer;
+
+    }
+}

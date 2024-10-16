@@ -24,13 +24,13 @@ class Email{
             // create a new object con la informacion de Brevo
             $mail = new PHPMailer();
             $mail->isSMTP();
-            $mail->Host = 'smtp-relay.brevo.com';
+            $mail->Host = $_ENV['EMAIL_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'husky-coldjacob@hotmail.com';
-            $mail->Password = 'AR6cwLSsPC1tMJf7';
-            $mail->Port = 587;
+            $mail->Username = $_ENV['EMAIL_USER'];
+            $mail->Password = $_ENV['EMAIL_PASS'];
+            $mail->Port = $_ENV['EMAIL_PORT'];
 
-            $mail->setFrom('cuentas@flawlessmarynails.com');
+            $mail->setFrom('jacob.goca@outlook.com');
             $mail->addAddress($this->email, $this->nombre);
             $mail->Subject = 'Confirma tu Cuenta';
 
@@ -41,7 +41,7 @@ class Email{
             $contenido = '<html>';
             $contenido .= "<h1>¡Hola " . $this->nombre . "!</h1>";
             $contenido .= "<p>Has Registrado Correctamente tu cuenta en FlawlessMaryNails; pero es necesario confirmarla</p>";
-            $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";       
+            $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['APP_URL'] . "/confirmar-cuenta?token=" . $this->token . "'>Confirmar Cuenta</a>";       
             $contenido .= "<p>Si tu no creaste esta cuenta; puedes ignorar este mensaje</p>";
             $contenido .= '</html>';
             $mail->Body = $contenido;
@@ -58,13 +58,13 @@ class Email{
             // create a new object con la informacion de Brevo
             $mail = new PHPMailer();
             $mail->isSMTP();
-            $mail->Host = 'smtp-relay.brevo.com';
+            $mail->Host = $_ENV['EMAIL_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'husky-coldjacob@hotmail.com';
-            $mail->Password = 'AR6cwLSsPC1tMJf7';
-            $mail->Port = 587;
+            $mail->Username = $_ENV['EMAIL_USER'];
+            $mail->Password = $_ENV['EMAIL_PASS'];
+            $mail->Port = $_ENV['EMAIL_PORT'];
 
-            $mail->setFrom('cuentas@flawlessmarynails.com');
+            $mail->setFrom('jacob.goca@outlook.com');
             $mail->addAddress($this->email, $this->nombre);
             $mail->Subject = 'Recuperar Contraseña';
 
@@ -75,7 +75,7 @@ class Email{
             $contenido = '<html>';
             $contenido .= "<h1>¡Hola " . $this->nombre . "!</h1>";
             $contenido .= "<p>Has solicitado reestablecer tu contraseña de Flawless Mary Nails, sigue el siguiente enlace para hacerlo.</p>";
-            $contenido .= "<p>Presiona aquí: <a href='http://localhost:3000/reestablecer?token=" . $this->token . "'>Reestablecer contraseña</a>";       
+            $contenido .= "<p>Presiona aquí: <a href='" . $_ENV['APP_URL'] ."/reestablecer?token=" . $this->token . "'>Reestablecer contraseña</a>";       
             $contenido .= "<p>Si tu no creaste esta cuenta; puedes ignorar este mensaje</p>";
             $contenido .= '</html>';
             $mail->Body = $contenido;

@@ -42,7 +42,8 @@ class Router
             // Call user fn va a llamar una función cuando no sabemos cual sera
             call_user_func($fn, $this); // This es para pasar argumentos
         } else {
-            echo "Página No Encontrada o Ruta no válida";
+            // echo "Página No Encontrada o Ruta no válida";
+            header('Location: /error');
         }
     }
 
@@ -60,12 +61,9 @@ class Router
         $currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
         // entonces incluimos la vista en el layout
         if($currentUrl === '/'){
-            include_once __DIR__ . '/views/layout.php';
+            include_once __DIR__ . '/views/layout.php'; // usa partial_header.php con imagen de fondo
         }else{
-            include_once __DIR__ . '/views/layout_pages.php'; //raiz del proyecto/views/layout.php
+            include_once __DIR__ . '/views/layout_pages.php'; //admin | raiz del proyecto/views/layout.php | usa headerpages.php/partial_header.php sin imagen de header
         }
-        
-        
-        
     }
 }

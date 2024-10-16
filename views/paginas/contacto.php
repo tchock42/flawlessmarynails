@@ -31,5 +31,6 @@
             <span class="menu-redes__ocultar">WhatsApp</span>
         </a>
     </nav>
+    <h1 class="contacto__subheading">Flawless Mary Nails</h1>
 </section>
 <div id="mapa" class="mapa"></div>

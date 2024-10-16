@@ -26,6 +26,11 @@
     </aside>
     <!--termina menu emergente-->
     <div class="header__contenedor">
+    <?php if(isset($_SESSION['email'])){ ?> <!-- Cerrar sesión en mobile -->
+        <form method="POST" action="/logout" class="header__contenedor__cerrar-sesion">
+            <img src="/build/img/icons/icons8-salida-50.png" alt="icono cerrar sesión"><input type="submit" value="Cerrar Sesión" class="header__contenedor__cerrar-sesion__icono">
+        </form>
+    <?php } ?>
         <div class="header__logo">    <!--aqui va la imagen del logo-->
             <img src="/build/img/logo.jpg" alt="logo flawlessmarynails">
         </div>
@@ -40,11 +45,11 @@
         <nav class="header__iconos">
             <a href="https://wa.me/525542181678" target="_blank"><button class="header__boton">Agendar</button></a>
             <div class="header__user">
-                <a class="header__user__icono" href=<?php if(is_auth() && $_SESSION['admin']){ echo '/admin'; }elseif(is_auth() && $_SESSION['nombre']){ echo "/cuenta-usuario"; }else{ echo "/login";} ?>>
+                <a class="header__user__icono" href=<?php if(is_auth() && $_SESSION['admin']){ echo '/admin'; }elseif(is_auth() && $_SESSION['nombre']){ echo "/admin"; }else{ echo "/login";} ?>>
                     <button class="header__boton--transparente" type="button">
                         <p class="header__user__login"><?php if(is_auth()){ echo $_SESSION['nombre']; ?> </p> 
-                        <?php }else{  ?>
-                            <p class="header__user__login">Login</p>
+                        <?php }else{  ?>    
+                            <p class="header__user__login">Admin</p>
                         <?php } ?>
                             
                         <img src="/build/img/icons/icons8-usuario-femenino-50.png" alt="usuario icono">
@@ -53,7 +58,7 @@
                 <!-- Mini Submenu | Si está autenticado aparece menú-->
                 <?php if(is_auth()){ ?> 
                     <div class="submenu">
-                        <a href="/cuenta-usuario"><li class="submenu__elemento"><img src="/build/img/icons/user-solid.svg" alt="usuario icono">Cuenta</li></a>
+                        <a href="/admin"><li class="submenu__elemento"><img src="/build/img/icons/user-solid.svg" alt="usuario icono">Cuenta</li></a>
                         <form method="POST" action="/logout" class="submenu__form">
                             <img src="/build/img/icons/sign-out-alt-solid.svg" alt="icono cerrar sesión"><input type="submit" value="Cerrar Sesión" class="submenu__submit submenu__elemento">
                         </form>
@@ -61,12 +66,12 @@
                 <?php }else{ ?>
                     <div class="submenu">
                         <a href="/login"><li class="submenu__elemento"><img src="build/img/icons/user-solid.svg" alt="usuario icono">Iniciar Sesión</li></a>
-                        <a href="/crear"><li class="submenu__elemento"><img src="build/img/icons/sign-in-alt-solid.svg" alt="icono sign-in">Registrarse</li></a>
+                        <!-- <a href="/crear"><li class="submenu__elemento"><img src="build/img/icons/sign-in-alt-solid.svg" alt="icono sign-in">Registrarse</li></a> -->
                     </div>
                 <?php } ?>
             </div>
                 <!--Termina minisubmenu-->
-            <a href="/carrito" class="header__icono"><img src="/build/img/icons/icons8-shopping-bag-50.png" alt="icono bolsa de compras"></a>
+            <a href="/tienda" class="header__icono"><img src="/build/img/icons/icons8-shopping-bag-50.png" alt="icono bolsa de compras"></a>
             <label for="menu-control" class="hamburguer">
                 <img class="hamburger__icon" src="/build/img/icons/menu.svg" alt="menu desplegable">
             </label>           

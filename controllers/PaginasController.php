@@ -44,21 +44,34 @@ class PaginasController{
             'id' => $_SESSION['id'] ?? ''
         ]);
     }  
+    public static function producto(Router $router){
 
-    public static function pedido(Router $router){ //pagina para realizar el pago
-        if(!isset($_SESSION)) { //si no está la sesion abierta la abre
-            session_start();
-        }
-        if(!isset($_SESSION['id'])){ // si no está iniciada la sesión
-            header('Location: /login?redirect=/pedido');
-            exit();
+        $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
+
+        if(!$id){
+            header('Location: /productos');
         }
 
-        $router->render('paginas/pedido', [
-            'titulo' => 'Proceso de Pago',
-            'nombre' => $_SESSION['nombre'],
-            'apellido' => $_SESSION['apellido'],
-            'id' => $_SESSION['id']
+        $producto=Producto::find($id);
+
+        if(!$producto){
+            header('Location: /productos');
+        }
+        $router->render('paginas/producto', [
+            'producto' => $producto,
+            'titulo' => $producto->nombre 
+        ]);
+    }
+    public static function error(Router $router){
+
+        $router->render('paginas/error',[
+            'titulo' => 'Error 404'
+        ]);
+    }
+    public static function tienda(Router $router){
+        
+        $router->render('paginas/tienda', [
+            'titulo' => 'Tienda'
         ]);
     }
 }

@@ -17,8 +17,18 @@
 
 .productos{
     @include m.contenedor-xl;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include m.tablet {
+        justify-content: left;
+    }
     &__boton{
         @include m.boton(v.$oscuro, v.$negro);
+        margin: 0 auto;
+        @include m.tablet {
+            margin: 0;
+        }
     }
 
     &__heading{

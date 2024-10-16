@@ -10,8 +10,16 @@
                 rgba(239,175,176,0.8464635854341737) 100%);
     position: relative;
 
+    &__cerrar-sesion{
+        position:absolute;
+        right: 0;
+        display: block;
+    }
+
     &__contenedor{
         // position: relative;
+        position:relative;
+        z-index: 2;
         @include m.contenedor;
         justify-content: center;
         @include m.tablet {
@@ -24,6 +32,42 @@
             flex-direction: row;
             align-items: center;
             gap: 5rem;
+        }
+        &__cerrar-sesion{
+            display: flex;
+            position: absolute;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            right: 0;
+            padding: 0.5rem;
+            &:hover, &:focus{
+                cursor:pointer;
+                border: 1px solid v.$negro;
+            }
+            img {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin: 0;
+            }
+            &__icono{
+                all: unset;
+                color: v.$negro;
+                font-size: 1.4rem;
+                height: 4rem;
+                width: 100%;
+                margin: auto .5rem;
+
+            }
+
+            &:hover{
+                cursor: pointer;
+                background-color: v.$claro;
+            }   
+            @include m.tablet {
+                display: none;
+            }
         }
     }            
 
@@ -94,13 +138,14 @@
             padding: 1.5rem .5rem;
             justify-content: center;
             align-items: center;
-            @include m.tablet{
-                display:flex;
-            }
             &:hover{
                 background-color: transparent;
                 color:v.$oscuro;
             }
+            @include m.tablet{
+                display:flex;
+            }
+
             img{
                 width: 3rem;
                 margin: 0 auto;

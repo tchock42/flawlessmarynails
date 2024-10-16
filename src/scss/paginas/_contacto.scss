@@ -89,6 +89,7 @@
 }
 .contacto.contenedor{
     padding: 4rem 2rem;
+    
     @include m.contenedor-xl;
 
     .menu-redes{
@@ -105,7 +106,9 @@
 
 .contacto{
     background-color: v.$blanco;
-    margin-top: 2rem;
+    -webkit-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.75);
     
     &__imagen{
         background-image: url("../img/pexels-valeria-boltneva-939835.jpg");
@@ -113,6 +116,15 @@
         background-position: 40%;
         padding: 20rem 0;
     }
+    &__subheading{
+        font-family: v.$fuente_secundaria;
+        text-align: center;
+        font-size: 4.4rem;
+    }
+}
+
+section.contacto{
+    margin-top: 4rem!important;
 }
 .mapa{
     grid-column: 1 / 3;

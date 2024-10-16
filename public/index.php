@@ -14,18 +14,22 @@ $router = new Router();
 $router->get('/', [PaginasController::class, 'index']);
 $router->get('/servicios', [PaginasController::class, 'servicios']);
 $router->get('/contacto', [PaginasController::class, 'contacto']);
+$router->get('/error', [PaginasController::class, 'error']);
+$router->get('/productos', [PaginasController::class, 'productos']);
+$router->get('/producto', [PaginasController::class, 'producto']);
+$router->get('/tienda', [PaginasController::class, 'tienda']);
 
 //iniciar sesion
 $router->get('/login', [LoginController::class, 'login']);  //hacer login
 $router->post('/login', [LoginController::class, 'login']); //post de login
 $router->post('/logout', [LoginController::class, 'logout']);//logout
-$router->get('/crear', [LoginController::class, 'crear']);    //crear una cuenta
-$router->post('/crear', [LoginController::class, 'crear']);
+// $router->get('/crear', [LoginController::class, 'crear']);    //crear una cuenta
+// $router->post('/crear', [LoginController::class, 'crear']);
 $router->get('/olvide', [LoginController::class, 'olvide']);
 $router->post('/olvide', [LoginController::class, 'olvide']);
 $router->get('/reestablecer', [LoginController::class, 'reestablecer']);
 $router->post('/reestablecer', [LoginController::class, 'reestablecer']);
-$router->get('/mensaje', [LoginController::class, 'mensaje']);
+// $router->get('/mensaje', [LoginController::class, 'mensaje']);
 
 $router->get('/cuenta-usuario', [LoginController::class, 'cuenta']);
 
@@ -33,10 +37,6 @@ $router->get('/cuenta-usuario', [LoginController::class, 'cuenta']);
 $router->get('/mensaje', [LoginController::class, 'mensaje']);
 $router->get('/confirmar-cuenta', [LoginController::class, 'confirmar']);
 
-// tienda de press-on
-$router->get('/productos', [PaginasController::class, 'productos']);
-$router->get('/pedido', [PaginasController::class, 'pedido']);
-$router->post('/pedido', [PaginasController::class, 'pedido']);
 // API
 $router->post('/api/carrito', [CarritoController::class, 'guardar']);       // url para datos de formData
 $router->post('/api/producto', [CarritoController::class, 'almacenar']);    // url para datos de formData

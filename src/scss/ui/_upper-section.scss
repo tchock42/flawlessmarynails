@@ -9,6 +9,9 @@
 
     .barrita{
         padding: 2rem;
+        -webkit-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.75);
+        box-shadow: 10px 10px 20px -1px rgba(0,0,0,0.75);
         @include m.tablet {
             display: flex;
         }

@@ -14,41 +14,19 @@
             <img src="/imagenes/<?php echo $producto->imagen; ?>.jpeg" alt="<?php echo $producto->nombre; ?>">
             <div class="producto__resumen">
                 <h3><?php echo $producto->nombre; ?></h3>
-                <p class="producto__resumen__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam saepe odio, ut dicta quos sint repudiandae ea inventore voluptatibus.</p>
-                <h4>$<span><?php echo $producto->precio; ?></span>MX</h4>
+                <!-- <p class="producto__resumen__descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam saepe odio, ut dicta quos sint repudiandae ea inventore voluptatibus.</p> -->
+                <h4>$<span><?php echo $producto->precio; ?></span> MX</h4>
             </div>
+            <a href="/producto?id=<?php echo $producto->id; ?>">
             <button 
                 type="button" 
                 class="producto__agregar"
                 data-id="<?php echo $producto->id; ?>"
-            >Agregar al carrito</button>
+            >Ver producto</button></a>
         </div>
     
         <?php } ?>
     </div>
-
-    <section class="carrito" id="carrito">
-    <div class="carrito__header">
-        <h2>Tu Carrito</h2>
-    </div>
-
-    <div class="carrito__items" id="carrito__items">
-        
-
-    </div>
-
-    <div class="carrito__total">
-        <div class="carrito__total__fila">
-            <strong>Tu Total</strong>
-            <span class="carrito__total__cantidad">
-                
-            </span>
-        </div>
-        <a href="/pedido"><button type="button" class="carrito__total__boton" id="carrito__pagar">Pagar
-            <li class="fa-solid fa-bag-shopping"></li>
-        </button></a>
-    </div>
-</section>
 
 </section>
 

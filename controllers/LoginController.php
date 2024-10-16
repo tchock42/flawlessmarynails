@@ -15,6 +15,11 @@ class LoginController{
         if(isset($_GET['redirect'])){
             $url_destino = $_GET['redirect'];
         }
+        // debuguear($_SESSION);
+        if(isset($_SESSION['email'])){
+            header('Location: /admin');
+            exit();
+        }
 
         $alertas = [];
 
@@ -48,80 +53,11 @@ class LoginController{
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['admin'] = $usuario->admin ?? null;
 
-                        // // Procesar el carrito
-                        if(isset($_POST['productos'])){   // si se tiene un productos en LS
-
-                            $id_usuario = $_SESSION['id'];  //id del usuario actual
-
-                            // se busca si ya existe un carrito con el id_usuario que inicia sesion
-                            $existeCarrito = Carrito::where('id_usuario', $id_usuario);
-                            if($existeCarrito){
-                                $_SESSION['carrito'] = $existeCarrito->id;    // guarda en la sesion el id del carrito
-                                $respuesta = [
-                                    'mensaje' => 'Existe un carrito',
-                                    'id' => $existeCarrito->id
-                                ];
-                                
-                            }else{
-                                // si no existe un carrito, se crea uno
-                                $carrito = json_decode($_POST['carrito'], true);
-                                $carrito = new Carrito($carrito);
-                                $carrito->id_usuario = $id_usuario; // instancia de carrito
-                                
-                                $respuesta = $carrito->guardar(); //retorna el resultado y id del carrito
-                                $_SESSION['carrito'] = $respuesta['id'];
-
-
-                                // guardar los productos en detalles_carrito
-                                $productos = json_decode($_POST['productos'], true);
-                                // debuguear($productos);
-                                foreach($productos as $producto){
-                                    // construir el detalleCarrito
-                                    $detalleCarrito = new DetalleCarrito();
-                                    $detalleCarrito->id_carrito = $_SESSION['carrito'];
-                                    $detalleCarrito->id_producto = $producto['id'];
-                                    $detalleCarrito->cantidad = "1";
-                                    $detalleCarrito->precio_unitario = $producto['precio'];
-                                    $detalleCarrito->subtotal = $detalleCarrito->precio_unitario * $detalleCarrito->cantidad;
-                                    // debuguear($detalleCarrito);
-                                    // verificacion de precios
-
-                                    $id_producto = $detalleCarrito->id_producto;    // extrae el id del producto para verificar precio
-                                    $verificaPrecio = Producto::where('id', $id_producto);
-                                    
-                                    if($verificaPrecio->precio !== $detalleCarrito->precio_unitario){
-                                        
-                                        $usuario->setAlerta('error', `El precio del producto con id $id_producto seleccionado no es válido`);
-                                        // to do: mostrar la alerta del precio
-                                    }else{
-                                        $detalleCarrito->guardar(); //guarda el producto actual
-                                    }
-                                }   // termina foreach
-                                $respuesta = [
-                                    'mensaje' => 'Carrito y productos guardados correctamente',
-                                    'id' => $carrito->id
-                                ];
-                            }       // termina el else de carrito 
-                        } // termina if de $_SESSION['carrito']
-                        
-                        //Redireccion
-                        // if(isset($_GET['redirect'])){
-                        //     // debuguear('Se va a pedido');
-                        //     header("Location: $url_destino");
-                        //     exit();
-                        // }elseif($usuario->admin){
-                            
-                        //     header('Location: /admin');
-                        //     exit();
-                        // }
-
-                        // header('Location: /');
-                        // exit();
-                        echo json_encode(['respuesta' => $respuesta ]);
+                        header('Location: /admin');
                         exit();
 
                     } else {
-                        Usuario::setAlerta('error', 'Password Incorrecto');
+                        Usuario::setAlerta('error', 'Contraseña Incorrecta');
                     }
                 }
             }

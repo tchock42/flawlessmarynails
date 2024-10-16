@@ -21,7 +21,6 @@
     }
 }
 .submenu {
-  
     display: none;
     position: absolute;
     top: 80%;
@@ -29,7 +28,7 @@
     background-color: v.$blanco;
     padding: 0;
     width: 20rem; //20
-    height: 8rem;
+    height: auto;
     
     img{
         display: inline-block;
