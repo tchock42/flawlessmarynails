@@ -1,0 +1,63 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.contacto.contenedor{
+    margin-bottom: 2rem!important;
+}
+.contenido.press-on{
+    
+    @include m.tablet {
+        display: flex;
+        flex-direction: row;
+    }
+    
+
+    .contenido__heading{
+        flex:3;
+    }
+    .contenido__imagen{
+        flex: 2;
+        transition: transform 0.3s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+    
+}
+
+.seccion__press-on{
+    padding: 0 1rem;
+
+
+    text-align: justify;
+    font-family: v.$fuente_principal;
+    line-height: 1.5;
+    @include m.tablet {
+        padding: 0 3rem;
+    }
+    &__subseccion{
+        @include m.tablet {
+            display: flex;
+            flex-direction: row;
+            gap:2rem;
+        }
+        &__lista{
+            @include m.tablet {
+                flex:3;
+
+            }
+        }
+        .press-on__imagen{
+            @include m.tablet {
+                flex:2;
+            }
+        }
+    }
+}
+.press-on__imagen{
+    transition: transform 0.3s ease-in-out;
+
+    &:hover{
+        transform: scale(1.03);
+    }
+}

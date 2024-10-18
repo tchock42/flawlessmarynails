@@ -74,5 +74,11 @@ class PaginasController{
             'titulo' => 'Tienda'
         ]);
     }
+    public static function presson(Router $router){
+        
+        $router->render('paginas/press-on', [
+            'titulo' => '¿Que son las press-on?'
+        ]);
+    }
 }
 

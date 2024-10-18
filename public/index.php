@@ -18,6 +18,7 @@ $router->get('/error', [PaginasController::class, 'error']);
 $router->get('/productos', [PaginasController::class, 'productos']);
 $router->get('/producto', [PaginasController::class, 'producto']);
 $router->get('/tienda', [PaginasController::class, 'tienda']);
+$router->get('/press-on', [PaginasController::class, 'presson']);
 
 //iniciar sesion
 $router->get('/login', [LoginController::class, 'login']);  //hacer login

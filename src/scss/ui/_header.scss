@@ -106,8 +106,10 @@
         font-size: 1.6rem;
         font-weight: v.$delgada;
         color: v.$gris;
+        transition: transform 0.3s ease-in-out;
         &:hover{
             color: v.$oscuro;
+            transform: translate(0, -10%);
         }
     }
     &__iconos{

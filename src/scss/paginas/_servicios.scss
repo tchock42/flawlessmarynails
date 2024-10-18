@@ -5,6 +5,7 @@
     margin-top: 4rem;
     @include m.contenedor-xl;
     padding: 2rem;
+    
 
     @include m.tablet {
         display: grid;
@@ -22,6 +23,7 @@
 .servicio{
     background-color: v.$blanco;
     margin: 2rem 0;
+    transition: transform 0.3s ease-in-out;
     &__resumen{
         padding: 3rem;
         display: flex;
@@ -34,13 +36,24 @@
     }
 
 }
-
-.servicios__button{
+.servicio:hover{
+    transform: scale(1.05);
+}
+.contenedor-boton{
+    @include m.contenedor-xl;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 4rem;
-    &__agenda{
-        @include m.boton(v.$negro, v.$blanco);
+
+}
+.servicios__button{
+    margin: 0 2rem 4rem 2rem;
+    @include m.boton(v.$negro, v.$blanco);
+    transition: background-color 3s ease, color, 3s ease;
+    width: 100%;
+    @include m.tablet {
+        width: fit-content;
+    }
+    &:hover{
+        @include m.boton(v.$blanco, v.$negro);
     }
 }

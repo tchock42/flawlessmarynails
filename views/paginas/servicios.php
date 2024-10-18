@@ -82,9 +82,11 @@
             </a> -->
         </div>
     </div>
-
+    
 </section>
 
-<a class="servicios__button" href="https://wa.me/525542181678" target="_blank">
-    <button class="servicios__button__agenda">Agenda!</button>
-</a>
+<section class="contenedor-boton">
+        <a class="servicios__button" href="https://wa.me/525542181678" target="_blank">
+            Agenda!
+        </a>
+</section>

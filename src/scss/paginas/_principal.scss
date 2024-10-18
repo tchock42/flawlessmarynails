@@ -56,6 +56,7 @@
         margin: 0 auto;
         padding-top: 4rem;
         text-align: center;
+        font-size: 4rem;
         font-family: v.$fuente_secundaria;
     }
     &__cards{
@@ -77,6 +78,7 @@
         padding: 5rem 0 0 0;
         border-top-right-radius: 1rem;
         border-top-left-radius: 1rem;
+        transition: transform 0.3s ease-in-out;
 
         &__heading{
             font-family: v.$fuente_secundaria;
@@ -86,6 +88,10 @@
         &__image{
            line-height: 0;
            min-width: 20rem;
+        }
+
+        &:hover{
+            transform: scale(1.05);
         }
     }
 }
@@ -176,14 +182,18 @@
         text-align: center;
         font-family: v.$fuente_principal;
         font-size: 2rem;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 12%;
+        left: 25%;
+        transition: transform 0.3s ease-in-out;
         h1{
             font-family: v.$fuente_secundaria;
             font-size: 6rem;
         }
+        &:hover{
+            transform: translate(0, -10%);
+        }
     }
+    
 }
 .section2{
     // min-height: 250px;
@@ -268,6 +278,10 @@
    
     h1{
         color: v.$negro;
+        transition: transform 0.3s ease-in-out;
+        &:hover{
+            transform: translate(0, -15%);
+        }
     }
     @include m.tablet {
         grid-row: 4 / 5;

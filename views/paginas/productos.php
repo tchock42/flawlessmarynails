@@ -1,7 +1,7 @@
 <main class="contenedor encabezado">
     <div class="barrita">
         <h1 class="barrita__heading"><?php echo $titulo; ?></h1>
-        <p class="barrita__descripcion">En Flawless Mary Nails nos hemos capacitado para ofrecerte los mejores y mas avanzados servicios, con la mejor atención e higiene en técnicas de manicura. Estos son los servicios con los que contamos.</p>
+        <p class="barrita__descripcion">Los sets de press-on son uñas reutilizables ideales para ser usadas varias veces el tiempo que tu lo desees. Nuestros set de press-on son creadas de manera artesanal y acorde a la medida de tus uñas. Si deseas conocer más acerca de las uñas reutilizables press-on, da clic en el siguiente enlace: <a href="/press-on" class="boton-vermas"><span>Ver más &raquo;</span></a></p>
     </div>
 </main>
 
@@ -31,6 +31,6 @@
 </section>
 
 
-<a class="servicios__button" href="https://wa.me/525542181678" target="_blank">
-    <button class="servicios__button__agenda">Agenda!</button>
+<a class="servicios__button__agenda" href="https://wa.me/525542181678" target="_blank">
+   Agenda!
 </a>

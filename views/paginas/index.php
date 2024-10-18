@@ -24,7 +24,7 @@
         </picture>
     </div>
     <section class="services contenedor">
-        <h3 class="services__heading">Nuestros Servicios</h3>
+        <h2 class="services__heading">Nuestros Servicios</h2>
         <div class="services__cards">
             <div class="service__card">
                 <h1 class="service__card__heading">Manicura Rusa</h1>
@@ -55,7 +55,7 @@
     </section>
     <section class="booknow">
         <div class="section-book">
-            <button href="/agenda" class="section-book__boton">Agenda ahora</button>
+            <a href="https://wa.me/525542181678"" class="section-book__boton">Agenda ahora</a>
             <picture class="section-book__imagen1">
                 <source srcset="build/img/book.avif" type="image/avif">
                 <source srcset="build/img/book.webp" type="image/webp">
